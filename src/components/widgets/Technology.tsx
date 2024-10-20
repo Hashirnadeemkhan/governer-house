@@ -13,12 +13,12 @@ import {
 } from "@/components/ui/carousel"
 import slideShow1 from "../../assets/slideShow1.jpg"
 import slideShow2 from "../../assets/slideShow2.jpg"
-import slideShow3 from "../../assets/slideShow3.jpg"
-import slideShow4 from "../../assets/slideShow4.jpg"
-import slideShow5 from "../../assets/slideShow5.jpg"
-import slideShow6 from "../../assets/slideShow6.jpg"
-import slideShow7 from "../../assets/slideShow7.jpg"
-import slideShow8 from "../../assets/slideShow8.jpg"
+// import slideShow3 from "../../assets/slideShow3.jpg"
+// import slideShow4 from "../../assets/slideShow4.jpg"
+// import slideShow5 from "../../assets/slideShow5.jpg"
+// import slideShow6 from "../../assets/slideShow6.jpg"
+// import slideShow7 from "../../assets/slideShow7.jpg"
+// import slideShow8 from "../../assets/slideShow8.jpg"
 
 
 
