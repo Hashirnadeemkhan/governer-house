@@ -1,93 +1,120 @@
-"use client"
-import Link from 'next/link';
-import { useState } from 'react';
+"use client";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+import Logo from "/public/logo.png";
+import Dropdown from "../shared/Dropdown";
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+export default function Navbar() {
+  const [navbar, setNavbar] = useState(false);
 
   return (
-    <nav className="bg-blue-500 p-4">
-      <div className="flex justify-between items-center">
-        <div className="text-white font-bold text-xl">MyWebsite</div>
+    <nav className="w-full bg-custom-blue sticky top-0 left-0 right-0 z-20">
+      <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
+        <div className="relative flex items-center justify-between py-5 w-full ">
+          {/* LOGO */}
+          <div className={`absolute left-0 md:top-6 top-12 z-10 m-auto flex h-16 w-[95%] items-center justify-between md:h-20 lg:w-[90%] xl:w-[1300px] ${navbar ? "hidden" : ""}`}>
+            <Link href="/">
+              <Image src={Logo} alt="logo" height={113} width={90} />
+            </Link>
+          </div>
 
-        {/* Hamburger Icon */}
-        <div className="md:hidden">
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="text-white focus:outline-none"
-          >
-            {/* Icon for hamburger */}
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
+          {/* HAMBURGER BUTTON FOR MOBILE */}
+          <div className="flex items-center justify-between w-full md:hidden">
+            <div className="text-center w-full text-white font-bold opacity-75 text-lg">
+              <span>Tuition Free Program</span>
+            </div>
+            <button
+              className="p-2 text-white rounded-md outline-none focus:border-gray-400 focus:border z-20"
+              onClick={() => setNavbar(!navbar)}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
-              />
-            </svg>
-          </button>
+              {navbar ? (
+                // Close Icon SVG
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  width="30"
+                  height="30"
+                  className="text-white"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              ) : (
+                // Hamburger Menu SVG
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  width="30"
+                  height="30"
+                  className="text-white"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M4 6h16M4 12h16m-7 6h7"
+                  />
+                </svg>
+              )}
+            </button>
+          </div>
+
+       {/* Middle Section for Large Screens */}
+          <div className={`hidden md:flex w-full items-center justify-center relative ${navbar ? "hidden" : ""}`}>
+            <span className="opacity-75 font-bold text-white lg:text-xl ">
+              Tuition Free Education Program on Latest Technologies
+            </span>
+          </div>
         </div>
 
-        {/* Links - Visible on larger screens */}
-        <ul className="hidden md:flex space-x-4">
-          <li>
-            <Link href="/" className="text-gray-200 hover:text-white">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link href="/about" className="text-gray-200 hover:text-white">
-              About
-            </Link>
-          </li>
-          <li>
-            <Link href="/contact" className="text-gray-200 hover:text-white">
-              Contact
-            </Link>
-          </li>
-        </ul>
+        {/* Links for Navigation */}
+        <div
+          className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${
+            navbar ? "block" : "hidden"
+          }`}
+        >
+          <ul className="h-screen md:h-auto items-center justify-center md:flex gap-x-8">
+            <li className="text-[1,25rem] text-white py-2 text-start border-b-2 md:border-b-0 md:hover:bg-transparent">
+              <Link href={"/"} onClick={() => setNavbar(false)}>
+                Home
+              </Link>
+            </li>
+            <li className="text-[1,25rem] text-white py-2 text-start border-b-2 md:border-b-0 md:hover:bg-transparent">
+              <Link href={"/apply"} onClick={() => setNavbar(false)}>
+                Apply
+              </Link>
+            </li>
+            <li className="text-[1,25rem] text-white py-2 text-start border-b-2 md:border-b-0 md:hover:bg-transparent">
+              <Link href={"/job"} onClick={() => setNavbar(false)}>
+                Job
+              </Link>
+            </li>
+            <li className="text-[1,25rem] text-white py-2 text-start border-b-2 md:border-b-0 md:hover:bg-transparent">
+              <Link href={"/result"} onClick={() => setNavbar(false)}>
+                Result
+              </Link>
+            </li>
+            <li className="text-[1.,25rem] text-white py-2 flex items-center lg:flex-row justify-between text-center border-b-2 md:border-b-0 md:hover:bg-transparent">
+              <Link href={"/courses"} onClick={() => setNavbar(false)}>
+                Courses
+              </Link>
+              <div>
+                <Dropdown />
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
-
-      {/* Mobile Menu - Shown when hamburger is clicked */}
-      {isOpen && (
-        <ul className="md:hidden mt-4 space-y-2">
-          <li>
-            <Link
-              href="/"
-              className="block text-gray-200 hover:text-white"
-              onClick={() => setIsOpen(false)}
-            >
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/about"
-              className="block text-gray-200 hover:text-white"
-              onClick={() => setIsOpen(false)}
-            >
-              About
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/contact"
-              className="block text-gray-200 hover:text-white"
-              onClick={() => setIsOpen(false)}
-            >
-              Contact
-            </Link>
-          </li>
-        </ul>
-      )}
     </nav>
   );
-};
+}
 
-export default Navbar;

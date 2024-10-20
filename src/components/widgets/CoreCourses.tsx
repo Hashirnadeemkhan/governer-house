@@ -1,8 +1,9 @@
 import React from 'react'
 import Wrapper from '../shared/Wrapper'
-import programmingFundamental from "../../assets/programming_Fundamentals.jpg"
+import programmingFundamental from "../../assets/programming.jpg"
 import nextjs from "../../assets/nextjs.jpg"
 import earnaslearn from "../../assets/earn_as_your_learn.jpg"
+
 
 import Boxes from '../shared/Boxes'
 
