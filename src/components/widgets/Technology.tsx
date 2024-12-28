@@ -1,24 +1,29 @@
+"use client"
 import React from 'react'
 import Wrapper from '../shared/Wrapper' // Remove .tsx extension and use the absolute path
 import Image from 'next/image'
 import menTech from "../../assets/menTech.jpg";
 import solopreneurs from "../../assets/solopreneurs.jpg"
 import techPeople from "../../assets/techPeople.jpg"
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel"
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { Swiper, SwiperSlide } from 'swiper/react'; // Import Swiper and SwiperSlide
+// import {
+//   Carousel,
+//   CarouselContent,
+//   CarouselItem,
+//   CarouselNext,
+//   CarouselPrevious,
+// } from "@/components/ui/carousel"
 import slideShow1 from "../../assets/slideShow1.jpg"
 import slideShow2 from "../../assets/slideShow2.jpg"
-// import slideShow3 from "../../assets/slideShow3.jpg"
-// import slideShow4 from "../../assets/slideShow4.jpg"
-// import slideShow5 from "../../assets/slideShow5.jpg"
-// import slideShow6 from "../../assets/slideShow6.jpg"
-// import slideShow7 from "../../assets/slideShow7.jpg"
-// import slideShow8 from "../../assets/slideShow8.jpg"
+import slideShow3 from "../../assets/slideShow3.jpg"
+import slideShow4 from "../../assets/slideShow4.jpg"
+import slideShow5 from "../../assets/slideShow5.jpg"
+import slideShow6 from "../../assets/slideShow6.jpg"
+import slideShow7 from "../../assets/slideShow7.jpg"
+import slideShow8 from "../../assets/slideShow8.jpg"
 
 
 
@@ -58,18 +63,57 @@ const Technology = () => {
          
         
 
-<div className='w-full'>
-          {/* crousel section*/}
-          <Carousel>
-  <CarouselContent>
-    <CarouselItem><Image src={slideShow1} alt='kamrantessori' ></Image></CarouselItem> 
-    <CarouselItem><Image src={slideShow2} alt='kamrantessori' ></Image></CarouselItem>
-    <CarouselItem>...</CarouselItem>
-  </CarouselContent>
-  <CarouselPrevious />
-  <CarouselNext />
-</Carousel>
-</div>
+    {/* Swiper component */}
+      <Swiper
+        spaceBetween={20}
+        slidesPerView={1}
+        navigation
+        pagination={{ clickable: true }}
+        scrollbar={{ draggable: true }}
+        className="mySwiper"
+      >
+        {/* Swiper slides with images */}
+        <SwiperSlide>
+          <div className="swiper-slide">
+            <Image src={slideShow1} alt="Slide 1" className="rounded-lg" layout="responsive" />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="swiper-slide">
+            <Image src={slideShow2} alt="Slide 2" className="rounded-lg" layout="responsive" />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="swiper-slide">
+            <Image src={slideShow3} alt="Slide 3" className="rounded-lg" layout="responsive" />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="swiper-slide">
+            <Image src={slideShow4} alt="Slide 4" className="rounded-lg" layout="responsive" />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="swiper-slide">
+            <Image src={slideShow5} alt="Slide 5" className="rounded-lg" layout="responsive" />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="swiper-slide">
+            <Image src={slideShow6} alt="Slide 6" className="rounded-lg" layout="responsive" />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="swiper-slide">
+            <Image src={slideShow7} alt="Slide 7" className="rounded-lg" layout="responsive" />
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className="swiper-slide">
+            <Image src={slideShow8} alt="Slide 8" className="rounded-lg" layout="responsive" />
+          </div>
+        </SwiperSlide>
+      </Swiper>
         </div>
       </Wrapper>
     </section>

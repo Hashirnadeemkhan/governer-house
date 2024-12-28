@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+/* globals.css */
+
 
 @tailwind base;
 @tailwind components;
@@ -8,3 +10,10 @@ html {
   font-family: 'Poppins', sans-serif; /* Set Poppins as default font */
 }
 
+
+
+.my{
+  min-width: max-content;
+  inset: -50px -50px auto auto;
+  transform: translate(-20.6667px ,60.000px, 0px);
+}
